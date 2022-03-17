@@ -1,12 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import 'rsuite/dist/rsuite.min.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
+import { ApolloProvider } from "@apollo/client";
+import client from "./apolloClient";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <ApolloProvider client={client} className="App">
+        <App />
+      </ApolloProvider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
